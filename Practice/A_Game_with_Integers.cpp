@@ -23,9 +23,10 @@ const ll LINF = 1e18;
 // #define debug(x) cerr << #x << " = " << x << endl
 
 // solve function for each test case
-void solve(vector<int> &vec, int n)
+void solve()
 {
-    string res = "";
+    // yo start from here,
+    // don't worry, you gonna solve this one too
 }
 
 int main()
@@ -40,14 +41,21 @@ int main()
         int n;
         cin >> n;
 
-        vector<int> vec(n);
-
-        for (int i = 0; i < n; i++)
+        if (n % 3 == 0)
         {
-            cin >> vec[i];
+            cout << "Second" << "\n";
         }
 
-        solve(vec, n);
+        else if (n % 3 == 1)
+        {
+            cout << "First" << "\n";
+        }
+
+        else if (n % 3 == 2)
+        {
+            cout << "First" << "\n";
+        }
+        solve();
     }
 
     return 0;
