@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// fast I/O
+#define FAST_IO                  \
+    ios::sync_with_stdio(false); \
+    cin.tie(0);                  \
+    cout.tie(0);
+
+// aliases
+#define ll long long
+#define ld long double
+#define pb push_back
+#define all(x) x.begin(), x.end()
+#define sz(x) ((int)(x).size())
+
+// constants
+const int MOD = 1e9 + 7;
+const int INF = 1e9 + 5;
+const ll LINF = 1e18;
+
+// debug (uncomment to use)
+// #define debug(x) cerr << #x << " = " << x << endl
+
+// solve function for each test case
+void solve(int n, string s)
+{
+    int l = 0, r = n - 1;
+    int len = 0;
+
+    while (l <= r)
+    {
+        if ((s[l] == '0' && s[r] == '1') || (s[l] == '1' && s[r] == '0'))
+        {
+            len += 2;
+            l++;
+            r--;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    cout << n - len << "\n";
+}
+
+int main()
+{
+    FAST_IO;
+
+    int T = 1;
+    cin >> T; // uncomment for multiple test cases
+
+    while (T--)
+    {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+
+        solve(n, s);
+    }
+
+    return 0;
+}
