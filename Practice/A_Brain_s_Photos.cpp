@@ -23,25 +23,23 @@ const ll LINF = 1e18;
 // #define debug(x) cerr << #x << " = " << x << endl
 
 // solve function for each test case
-void solve(ll n, vector<ll> vec)
+void solve(int n, int m, vector<vector<char>> mat)
 {
-    ll minNum = INT_MAX;
-
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        if (vec[i] <= vec[i + 1])
+        for (int j = 0; j < m; j++)
         {
-            ll dif = vec[i + 1] - vec[i];
-            ll op = dif / 2 + 1;
-            minNum = min(minNum, op);
-        }
-        else
-        {
-            minNum = 0;
+            // cout << mat[i][j] << endl;
+
+            if (mat[i][j] == 'C' || mat[i][j] == 'M' || mat[i][j] == 'Y')
+            {
+                cout << "#Color\n";
+                return;
+            }
         }
     }
 
-    cout << minNum << "\n";
+    cout << "#Black&White\n";
 }
 
 int main()
@@ -49,21 +47,23 @@ int main()
     FAST_IO;
 
     int T = 1;
-    cin >> T; // uncomment for multiple test cases
+    // cin >> T; // uncomment for multiple test cases
 
     while (T--)
     {
-        ll n;
-        cin >> n;
+        int n, m;
+        cin >> n >> m;
 
-        vector<ll> vec(n);
+        vector<vector<char>> mat(n, vector<char>(m));
 
         for (int i = 0; i < n; i++)
         {
-            cin >> vec[i];
+            for (int j = 0; j < m; j++)
+            {
+                cin >> mat[i][j];
+            }
         }
-
-        solve(n, vec);
+        solve(n, m, mat);
     }
 
     return 0;

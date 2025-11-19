@@ -23,25 +23,26 @@ const ll LINF = 1e18;
 // #define debug(x) cerr << #x << " = " << x << endl
 
 // solve function for each test case
-void solve(ll n, vector<ll> vec)
+void solve(int n, string s)
 {
-    ll minNum = INT_MAX;
+    unordered_map<int, int> seen;
 
-    for (int i = 0; i < n - 1; i++)
+    seen.insert({s[0], 1});
+
+    for (int i = 1; i < n; i++)
     {
-        if (vec[i] <= vec[i + 1])
+        if (seen.count(s[i]) && s[i] != s[i - 1])
         {
-            ll dif = vec[i + 1] - vec[i];
-            ll op = dif / 2 + 1;
-            minNum = min(minNum, op);
+            cout << "NO\n";
+            return;
         }
         else
         {
-            minNum = 0;
+            seen[s[i]]++;
         }
     }
 
-    cout << minNum << "\n";
+    cout << "YES\n";
 }
 
 int main()
@@ -53,17 +54,13 @@ int main()
 
     while (T--)
     {
-        ll n;
+        int n;
         cin >> n;
 
-        vector<ll> vec(n);
+        string s;
+        cin >> s;
 
-        for (int i = 0; i < n; i++)
-        {
-            cin >> vec[i];
-        }
-
-        solve(n, vec);
+        solve(n, s);
     }
 
     return 0;

@@ -23,25 +23,10 @@ const ll LINF = 1e18;
 // #define debug(x) cerr << #x << " = " << x << endl
 
 // solve function for each test case
-void solve(ll n, vector<ll> vec)
+void solve()
 {
-    ll minNum = INT_MAX;
-
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (vec[i] <= vec[i + 1])
-        {
-            ll dif = vec[i + 1] - vec[i];
-            ll op = dif / 2 + 1;
-            minNum = min(minNum, op);
-        }
-        else
-        {
-            minNum = 0;
-        }
-    }
-
-    cout << minNum << "\n";
+    // yo start from here,
+    // don't worry, you gonna solve this one too
 }
 
 int main()
@@ -53,17 +38,17 @@ int main()
 
     while (T--)
     {
-        ll n;
-        cin >> n;
+        vector<int> v(2, 0);
 
-        vector<ll> vec(n);
-
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < 2; i++)
         {
-            cin >> vec[i];
+            cin >> v[i];
         }
 
-        solve(n, vec);
+        sort(v.begin(), v.end());
+
+        cout << v[0] << " " << v[1] << "\n";
+        // solve();
     }
 
     return 0;

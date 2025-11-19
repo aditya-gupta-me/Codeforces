@@ -23,25 +23,31 @@ const ll LINF = 1e18;
 // #define debug(x) cerr << #x << " = " << x << endl
 
 // solve function for each test case
-void solve(ll n, vector<ll> vec)
+void solve(int n, vector<int> vec)
 {
-    ll minNum = INT_MAX;
-
-    for (int i = 0; i < n - 1; i++)
+    if (n == 1)
     {
-        if (vec[i] <= vec[i + 1])
+        cout << "YES\n";
+        return;
+    }
+
+    unordered_map<int, int> freq;
+
+    for (int val : vec)
+    {
+        freq[val]++;
+    }
+
+    for (const auto &pair : freq)
+    {
+        if (pair.second > 1)
         {
-            ll dif = vec[i + 1] - vec[i];
-            ll op = dif / 2 + 1;
-            minNum = min(minNum, op);
-        }
-        else
-        {
-            minNum = 0;
+            cout << "NO\n";
+            return;
         }
     }
 
-    cout << minNum << "\n";
+    cout << "YES\n";
 }
 
 int main()
@@ -53,16 +59,15 @@ int main()
 
     while (T--)
     {
-        ll n;
+        int n;
         cin >> n;
 
-        vector<ll> vec(n);
+        vector<int> vec(n, 0);
 
         for (int i = 0; i < n; i++)
         {
             cin >> vec[i];
         }
-
         solve(n, vec);
     }
 

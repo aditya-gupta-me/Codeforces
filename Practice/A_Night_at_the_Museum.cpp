@@ -12,7 +12,7 @@ using namespace std;
 #define ld long double
 #define pb push_back
 #define all(x) x.begin(), x.end()
-#define sz(x) ((int)(x).size())
+#define sz(x) ((int)(x).size()))
 
 // constants
 const int MOD = 1e9 + 7;
@@ -23,25 +23,25 @@ const ll LINF = 1e18;
 // #define debug(x) cerr << #x << " = " << x << endl
 
 // solve function for each test case
-void solve(ll n, vector<ll> vec)
+void solve(string s)
 {
-    ll minNum = INT_MAX;
+    // tc -> ares, zeus, map
+    int l = s.length();
+    int sum = abs('a' - s[0]);
+    if (abs(26 - sum) < sum)
+        sum = 26 - sum;
 
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < l - 1; i++)
     {
-        if (vec[i] <= vec[i + 1])
-        {
-            ll dif = vec[i + 1] - vec[i];
-            ll op = dif / 2 + 1;
-            minNum = min(minNum, op);
-        }
-        else
-        {
-            minNum = 0;
-        }
+        int a = abs(s[i] - s[i + 1]);
+        int b = abs(26 - a);
+        if (a > b)
+            a = b;
+        sum += a;
+        // cout << sum << "\n";
     }
 
-    cout << minNum << "\n";
+    cout << sum << "\n";
 }
 
 int main()
@@ -49,22 +49,16 @@ int main()
     FAST_IO;
 
     int T = 1;
-    cin >> T; // uncomment for multiple test cases
+    // cin >> T; // Uncomment for multiple test cases
 
     while (T--)
     {
-        ll n;
-        cin >> n;
-
-        vector<ll> vec(n);
-
-        for (int i = 0; i < n; i++)
-        {
-            cin >> vec[i];
-        }
-
-        solve(n, vec);
+        string s;
+        cin >> s;
+        solve(s);
     }
+
+    // cout << "zeus";
 
     return 0;
 }
