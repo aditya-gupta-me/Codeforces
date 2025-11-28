@@ -6,6 +6,7 @@ This repository contains my personal solutions to **Codeforces** problems, organ
 
 - 🟦 C++
 - ☕ Java (for some problems)
+- 🐍 Python (for some problems)
 
 ## Progress (Live)
 
@@ -21,7 +22,6 @@ This repository contains my personal solutions to **Codeforces** problems, organ
 - Math
 
 ...and many more as I progress through contests.
-
 
 ## 📁 Folder Structure
 
