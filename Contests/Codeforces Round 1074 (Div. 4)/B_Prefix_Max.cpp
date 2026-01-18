@@ -23,28 +23,10 @@ const ll LINF = 1e18;
 // #define debug(x) cerr << #x << " = " << x << endl
 
 // solve function for each test case
-void solve(int n, vector<int> v)
+void solve()
 {
-    // 0 -> Red
-    // 1 -> Blue
-    // int inc = 0, dec = 0;
-    bool flag = true;
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (v[i + 1] % 2 == v[i] % 2)
-        {
-            flag = false;
-        }
-    }
-
-    if (flag)
-    {
-        cout << "YES\n";
-    }
-    else
-    {
-        cout << "NO\n";
-    }
+    // yo start from here,
+    // don't worry, you gonna solve this one too
 }
 
 int main()
@@ -60,13 +42,22 @@ int main()
 
         cin >> n;
 
-        vector<int> v(n);
+        vector<int> vec(n);
 
         for (int i = 0; i < n; i++)
         {
-            cin >> v[i];
+            cin >> vec[i];
         }
-        solve(n, v);
+
+        int maxEle = INT_MIN;
+
+        for (int val : vec)
+        {
+            maxEle = max(val, maxEle);
+        }
+
+        cout << maxEle * n << endl;
+        // solve();
     }
 
     return 0;
